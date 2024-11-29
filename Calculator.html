@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; 
+            background-color: white; 
+        }
+        
+        marquee {
+            color: black;
+            font-size: 35px;
+            margin-bottom: 40px; 
+            width: 40vw;
+        }
+
+        .m{
+            background-color: black; 
+            padding: 5px;
+            border-radius: 10px;
+            width: 200px;
+            text-align: center;
+            
+            
+        }
+        input[type="button"], input[type="submit"] {
+            border: 1px solid gray;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+      
+        
+    </style>
+</head>
+<body>
+    <marquee>
+        <i>CALCULATOR</i>
+        </marquee>
+   
+    <div class="m">
+    <form id="form1" onsubmit="evaluation(event)">
+     
+        <input type="text" id="ip1" /><br><br>
+        <input type="button" value="7" onclick="input(event)" style="color: white; background-color: grey;"/>
+        <input type="button" value="8" onclick="input(event)" style="color: white; background-color: grey;"/>
+        <input type="button" value="9" onclick="input(event)" style="color: white; background-color: grey;"/>
+        <input type="button" value="/" onclick="input(event)" style="color: white; background-color: lightskyblue"/><br><br>
+        <input type="button" value="4" onclick="input(event)" style="color: white; background-color: grey;">
+        <input type="button" value="5" onclick="input(event)" style="color: white; background-color: grey;"/>
+        <input type="button" value="6" onclick="input(event)" style="color: white; background-color: grey;"/>
+        <input type="button" value="*" onclick="input(event)" style="color: white; background-color: lightskyblue"/><br><br>
+        <input type="button" value="1" onclick="input(event)" style="color: white; background-color: grey;"/>
+        <input type="button" value="2" onclick="input(event)" style="color: white; background-color: grey;"/>
+        <input type="button" value="3" onclick="input(event)" style="color: white; background-color: grey;"/>
+        <input type="button" value="-" onclick="input(event)" style="color: white; background-color: lightskyblue"/><br><br>
+        <input type="button" value="0" onclick="input(event)" style="color: white; background-color: grey;"/>
+        <input type="button" value="." onclick="input(event)" style="color: white; background-color: grey;"/>
+        <input type="button" value="=" onclick="input(event)" style="color: white; background-color: grey;"/>
+        <input type="button" value="+" onclick="input(event)" style="color: white; background-color: lightskyblue"/><br><br>
+        <input type="submit"/>
+
+    </form>
+
+</div>
+
+    <p id="op"></p>
+
+    <script>
+        let op=document.getElementById("op");
+        let form=document.getElementById("form1");
+        let display = document.getElementById("ip1");
+        const input = (event)=>{
+            display.value += event.target.value;
+
+        };
+        const evaluation = (event) => {
+            event.preventDefault();
+            let res = eval(display.value);
+            display.value = res;
+        }
+    </script>
+</body>
+</html>
